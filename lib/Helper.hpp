@@ -11,7 +11,7 @@ class Helper {
 public:
     static std::map<std::pair<double, double>, int> gen_data(int);
     static void show_data(std::ostream& os,std::map<std::pair<double, double>, int>&);
-    static void save_to_file(std::map<std::pair<double, double>, int>&);
+    static void save_to_file(std::map<std::pair<double, double>, int>&,std::string);
 };
 
 

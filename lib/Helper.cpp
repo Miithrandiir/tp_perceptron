@@ -38,17 +38,16 @@ void Helper::show_data(std::ostream& os, std::map<std::pair<double, double>, int
 
 }
 
-void Helper::save_to_file(std::map<std::pair<double, double>, int> & data) {
+void Helper::save_to_file(std::map<std::pair<double, double>, int> & data, std::string filename) {
 
-    std::fstream fs = std::fstream();
-    fs.open("../data/train.txt");
+    std::ofstream ofs(filename);
+
 
     std::stringstream ss = std::stringstream();
 
-    for(const std::pair<const std::pair<double,double>, int>& item : data) {
+    show_data(ss, data);
 
+    ofs << ss.str();
 
-
-    }
-
+    ofs.close();
 }
