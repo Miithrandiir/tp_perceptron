@@ -5,13 +5,14 @@
 #ifndef TP4_HELPER_HPP
 #define TP4_HELPER_HPP
 
-#include <map>
+#include <vector>
+#include <ostream>
 
 class Helper {
 public:
-    static std::map<std::pair<double, double>, int> gen_data(int);
-    static void show_data(std::ostream& os,std::map<std::pair<double, double>, int>&);
-    static void save_to_file(std::map<std::pair<double, double>, int>&,std::string);
+    static std::vector<std::pair<std::pair<double, double>, int>> gen_data(int);
+    static void show_data(std::ostream& os,std::vector<std::pair<std::pair<double, double>, int>>&);
+    static void save_to_file(std::vector<std::pair<std::pair<double, double>, int>>&,std::string);
 };
 
 
