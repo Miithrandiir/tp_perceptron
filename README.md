@@ -42,6 +42,8 @@ de un fera une descente plus radical, elle convient donc un petit nombre d'exemp
 d'apprentissage petit, la descente est moins brutale, et on risque moins oublié des valeurs minimales. C'est pour cela
 que l'on utilisera un pas de plus en plus petit au fur et à mesure que notre jeu de données grandit (e.g 5 millions)
 
+À noter que si le pas ne convient pas, il faudra alors plus d'itérations pour ne plus avoir d'erreurs (exemple d'un pas 0.0001 pour 50 données)
+
 | pas d'apprentissage | jeu de données          | Arrêt des itérations|
 | ------------------- | ----------------------- |---------------------|
 |   0.01              |      10                | 9 |
@@ -68,7 +70,8 @@ d'erreurs est grand.
 Tandis que si l'on a un nombre d'exemples élevés (e.g 1 millions), et un pas d'apprentissage petit, on minimise alors le
 nombre d'erreurs.
 ![](answers/errorbylearning_step_100000.png)
-> On remarque à contrario, que la courbe violette va minimiser le nombre d'erreurs, elle va d'ailleurs ne plus faire d'erreurs à partir de la ~19 itérations
+> On remarque à contrario, que la courbe violette va minimiser le nombre d'erreurs, elle va d'ailleurs ne plus faire d'erreurs à partir de la ~19 itérations.
+> En effet le pas est plus petit, on évite donc d'oublier des valeurs sur la descente de gradients vu que notre pas est plus petit
 
 # QUESTION 3.4
 
