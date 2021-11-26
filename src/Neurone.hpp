@@ -9,13 +9,15 @@
 #include <vector>
 #include <random>
 #include <algorithm>
-#define PAS_APPRENTISSAGE 0.001
 
 class Neurone {
     double biais;
     double sortie;
     std::vector<double> poids;
 public:
+
+    static double PAS_APPRENTISSAGE;
+
     Neurone(int x_size) : biais(0.5f), sortie(0.0f) {
 
         poids = std::vector<double>();
@@ -35,7 +37,7 @@ public:
 
     void mise_a_jour(std::pair<std::pair<double,double>,int>&);
 
-    void train(std::vector<std::pair<std::pair<double, double>, int>>& train_test, int iteration);
+    std::vector<int> train(std::vector<std::pair<std::pair<double, double>, int>>& train_test, int iteration);
 };
 
 #endif //TP4_NEURONE_HPP

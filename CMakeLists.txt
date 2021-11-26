@@ -22,7 +22,7 @@ include_directories(SYSTEM ${matplotlib_SOURCE_DIR})
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(TP4 main.cpp lib/Helper.cpp src/Neurone.cpp)
+add_executable(TP4 main.cpp lib/Helper.cpp src/Neurone.cpp lib/Stats.cpp lib/Stats.hpp)
 # link python and numpy
 target_link_libraries(TP4
         PRIVATE

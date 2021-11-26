@@ -20,24 +20,26 @@ void Neurone::mise_a_jour(std::pair<std::pair<double, double>, int> & exemple) {
     poids[1] = poids[1] + PAS_APPRENTISSAGE * (exemple.second - y) * exemple.first.second;
 }
 
-void Neurone::train(std::vector<std::pair<std::pair<double, double>, int>>& train_test, int iteration) {
+std::vector<int> Neurone::train(std::vector<std::pair<std::pair<double, double>, int>>& train_test, int iteration) {
 
-    int nb_error=0;
+    std::vector<int> nb_error=std::vector<int>();
     for(int it=0;it<iteration;it++) {
 
+        int nb_error_cpt = 0;
         for(std::pair<std::pair<double,double>,int> item :train_test) {
 
             int res = calc_sortie(item);
 
             if(res != item.second) {
                 mise_a_jour(item);
-                nb_error++;
+                nb_error_cpt++;
             }
-
         }
-    }
 
-    std::cout << "Nombre erreur en apprentissage " << std::to_string(nb_error) << std::endl;
+        nb_error.push_back(nb_error_cpt);
+
+    }
+    return nb_error;
 }
 
 
