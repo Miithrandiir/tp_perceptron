@@ -79,3 +79,64 @@ On constate tout de suite que l'on ne pourra pas avoir des réponses exactes, en
 
 ## Test de la première version
 
+Premier test sur le perceptron de la partie 3.1:
+
+```
+Echantillon pour l'apprentissage : 300
+Echantillon pour le test : 700
+Pas d'apprentissage: 0.01
+nombre d'itération: 100
+```
+
+On remarque que le perceptron produit environ 1% d'erreurs
+
+```
+Le perceptron à fait 10 erreur(s) (1.42857%)
+Le perceptron à fait 10 erreur(s) (1.42857%)
+Le perceptron à fait 6 erreur(s) (0.857143%)
+Le perceptron à fait 4 erreur(s) (0.571429%)
+Le perceptron à fait 5 erreur(s) (0.714286%)
+Le perceptron à fait 9 erreur(s) (1.28571%)
+Le perceptron à fait 3 erreur(s) (0.428571%)
+Le perceptron à fait 11 erreur(s) (1.57143%)
+Le perceptron à fait 5 erreur(s) (0.714286%)
+Le perceptron à fait 10 erreur(s) (1.42857%)
+Le perceptron à fait 8 erreur(s) (1.14286%)
+Le perceptron à fait 8 erreur(s) (1.14286%)
+Le perceptron à fait 4 erreur(s) (0.571429%)
+Le perceptron à fait 3 erreur(s) (0.428571%)
+Le perceptron à fait 9 erreur(s) (1.28571%)
+Le perceptron à fait 7 erreur(s) (1%)
+Le perceptron à fait 5 erreur(s) (0.714286%)
+Le perceptron à fait 10 erreur(s) (1.42857%)
+Le perceptron à fait 4 erreur(s) (0.571429%)
+Le perceptron à fait 8 erreur(s) (1.14286%)
+moyenne des erreurs = 0.992857%
+```
+En augmentant progressivement l'échantillon d'apprentissage la moyenne des erreurs diminue
+
+```
+    Moyenne d'erreurs pour un échantillon de 3000 en apprentissage : 0.0142857%
+    Moyenne d'erreurs pour un échantillon de 30000 en apprentissage: 0%
+```
+
+Ceci s'explique assez simplement, en effet si l'on ne génère pas assez de points on ne remplit pas assez les deux groupes, c'est-à-dire que si l'on ne génère pas assez de données d'entrainement on peut se retrouver dans le cas ou tous les points rouges sont en bas et tous les points bleus en haut, ce qui fait que notre droite séparatrice serait horizontale, ce qui ne convient pas à notre modèle ci !
+
+## Deuxième test sur le perceptron de la partie 3.4 :
+
+```
+Echantillon pour l'apprentissage : 300
+Echantillon pour le test : 700
+Pas d'apprentissage: 0.01
+nombre d'itération: 100
+```
+
+| Échantillon apprentissage | Moyenne des erreurs |
+| ------------------------- | -------------------:|
+| 300 | 8.44286% |
+| 3000 | 7.25% |
+| 30000 | 9.59286% |
+| 300000 | 9.93571% |
+| 3000000 | 7.32857% |
+
+Ici on remarque que l'on ne pourra jamais atteindre zéro erreur, car le problème n'est pas linéairement séparable, de ce fait, nous aurons toujours une tendance à faire des erreurs, ici on peut prétendre à faire ~7.38% ce sont les points qui ne pourront être séparé par la droite.
