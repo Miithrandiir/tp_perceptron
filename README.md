@@ -11,6 +11,7 @@ Vérifiez que python et matplotlib sont installés
     cmake ..
     ./TP4
 
+
 ### Question 3.1
 
 Plus le nombre itération est grand plus le nombre d'erreurs est faible
@@ -41,3 +42,25 @@ On remarque que si le nombre d'exemples est petit et que le pas d'apprentissage 
 Tandis que si l'on a un nombre d'exemples élevés (e.g 1 millions), et un pas d'apprentissage petit, on minimise alors le nombre d'erreurs.
 ![](answers/errorbylearning_step_100000.png)
 > On remarque à contrario, que la courbe violette va minimiser le nombre d'erreurs, elle va d'ailleurs ne plus faire d'erreurs à partir de la ~19 itérations
+
+
+# PARTIE 3.4
+
+On remplace la génération de données voir le fichier `lib/Helper.cpp`
+
+```cpp
+//res.emplace_back(std::make_pair(std::make_pair(x1,x2), ((x1+x2-1 > 0) ? 1 : -1)));
+res.emplace_back(std::make_pair(std::make_pair(x1,x2), ((x1+x2-1 > 0 && x2 > 0.5) ? 1 : -1)));
+```
+
+Ce qui donne cette représentation :
+
+![](answers/plot_points_3_4.png)
+
+On constate tout de suite que l'on ne pourra pas avoir des réponses exactes, en effet, le perceptron est un classifier linéaire, il nous sera imossible de bien séparer les rouges des bleues, on fera toujours des erreurs dans les grands jeux de données, en effet si on a un petit jeu de données il est possible que certains points rouges ne soit pas générer dans la zone non prédictible.
+
+![](answers/partie_4_errorbyitr.png)
+> On remarque ici un nombre bas d'erreurs dû à un petit jeu de données (50 exemples)
+
+![](answers/partie_4_errorbyexemple_10000.png)
+> Ici les erreurs sont très fréquentes, car impossible de prédire une partie des points rouges, car le jeu de données est trop grand, donc on se retrouve avec le schéma du dessus et il est donc impossible de tracer une droite de façon à séparer les deux groupes. 

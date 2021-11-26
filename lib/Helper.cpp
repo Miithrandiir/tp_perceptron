@@ -22,7 +22,8 @@ std::vector<std::pair<std::pair<double, double>, int>> Helper::gen_data(int numb
 
         double x1 = dist(rng);
         double x2 = dist(rng);
-        res.emplace_back(std::make_pair(std::make_pair(x1,x2), ((x1+x2-1 > 0) ? 1 : -1)));
+        //res.emplace_back(std::make_pair(std::make_pair(x1,x2), ((x1+x2-1 > 0) ? 1 : -1)));
+        res.emplace_back(std::make_pair(std::make_pair(x1,x2), ((x1+x2-1 > 0 && x2 > 0.5) ? 1 : -1)));
 
     }
 

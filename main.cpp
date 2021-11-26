@@ -4,7 +4,7 @@
 #include "./src/Neurone.hpp"
 
 //double Neurone::PAS_APPRENTISSAGE = 0.0001;
-double Neurone::PAS_APPRENTISSAGE = 0.1;
+double Neurone::PAS_APPRENTISSAGE = 0.01;
 
 int main(int argc, char *argv[]) {
     std::vector<std::pair<std::pair<double, double>, int>> data_train;
@@ -22,9 +22,9 @@ int main(int argc, char *argv[]) {
      * Affichage des erreurs selon le nombre d'itérations
      */
 
-    //Stats::getPlotErrorByItr(data_train);
+    Stats::getPlotErrorByItr(data_train);
     Stats::getPlotErrorByExemple(6);
-//    Stats::getPlorErrorByLearningStep(6);
+    Stats::getPlorErrorByLearningStep(6);
 
 
     return 0;

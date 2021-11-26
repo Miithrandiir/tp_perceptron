@@ -111,7 +111,7 @@ void Stats::getPlorErrorByLearningStep(int max_exemple) {
 
 
         }
-        plt::title("Nombre d'erreurs selon le nombre d'exemples \n(variant le pas d'apprentissage)");
+        plt::title("Nombre d'erreurs selon le nombre d'exemples \n(variant le pas d'apprentissage)\n("+std::to_string(nb_ex)+" exemples)");
         plt::xlabel("Nombre d'itérations");
         plt::ylabel("Nombre d'erreurs");
         plt::legend();
