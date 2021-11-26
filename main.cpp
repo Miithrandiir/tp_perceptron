@@ -12,9 +12,13 @@ int main(int argc, char *argv[]) {
 
     //Juste l'exécutable
     if (argc == 1) {
-        data_train = Helper::gen_data(1000);
-        Helper::save_to_file(data_train, "../data/errorByLearningStep_nb_ex_" + std::to_string(1000));
+        std::cout << "Aucun fichier de fournis" << std::endl;
+        std::cout << "Génération en cours.." << std::endl;
+        data_train = Helper::gen_data(100000);
+        Helper::save_to_file(data_train, "../data/errorByLearningStep_nb_ex_" + std::to_string(data_train.size()));
+        std::cout << "Fin de la génération" << std::endl;
     } else if (argc == 2) {
+        std::cout << "fichier fourni" << std::endl;
         std::string test = argv[1];
         data_train = Helper::load_data(test);
     }
@@ -23,11 +27,15 @@ int main(int argc, char *argv[]) {
      * Affichage des erreurs selon le nombre d'itérations
      */
 
-//    Stats::getPlotErrorByItr(data_train);
-//    Stats::getPlotErrorByExemple(6);
-//    Stats::getPlorErrorByLearningStep(6);
-    data_train = Helper::gen_data(3000000);
-    //Helper::save_to_file(data_train, "../data/train_" + std::to_string(data_train.size()));
+    //Affichage des erreurs par le nombre d'itérations
+    Stats::getPlotErrorByItr(data_train);
+    //Affichage des erreurs par le nombre d'itérations en faisant varier le nombre d'exemples
+    //Stats::getPlotErrorByExemple(6);
+    //Affichage des erreurs par le nombre d'itérations en faisant varier le nombre d'exemples ainsi que le pas d'apprentissage.
+    //Stats::getPlorErrorByLearningStep(6);
+
+    //Valeur à modifier pour jouer sur les erreurs
+    data_train = Helper::gen_data(300);
     Neurone neurone(2);
     neurone.train(data_train, NB_ITERATION);
     std::vector<double> means{};
