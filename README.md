@@ -167,5 +167,5 @@ nombre d'itération: 100
 | 3000000 | 7.32857% |
 
 Ici on remarque que l'on ne pourra jamais atteindre zéro erreur, car le problème n'est pas linéairement séparable, de ce
-fait, nous aurons toujours une tendance à faire des erreurs, ici on peut prétendre à faire ~7.38% ce sont les points qui
+fait, nous aurons toujours une tendance à faire des erreurs, ici on peut prétendre à faire ~7.38% d'erreurs, ce sont les points qui
 ne pourront être séparés par la droite.
