@@ -32,7 +32,7 @@ std::vector<std::pair<std::pair<double, double>, int>> Helper::gen_data(int numb
 void Helper::show_data(std::ostream& os, std::vector<std::pair<std::pair<double, double>, int>>& data) {
     for(std::pair<std::pair<double,double>, int> item : data) {
 
-        os << item.first.first << " " << item.first.second << " : " << item.second << std::endl;
+        os << item.first.first << " " << item.first.second << " " << item.second << std::endl;
 
     }
 
@@ -50,4 +50,31 @@ void Helper::save_to_file(std::vector<std::pair<std::pair<double, double>, int>>
     ofs << ss.str();
 
     ofs.close();
+}
+
+std::vector<std::pair<std::pair<double, double>, int>> Helper::load_data(std::string& filename) {
+
+    std::ifstream iss;
+    iss.open(filename);
+
+    std::string line;
+    std::vector<std::pair<std::pair<double,double>,int>> res{};
+
+    while(std::getline(iss, line)) {
+
+        std::pair<std::pair<double,double>,int> tmp{};
+        std::string subline;
+        std::getline(iss, subline, ' ');
+        tmp.first.first = std::stod(subline);
+        std::getline(iss, subline, ' ');
+        tmp.first.second = std::stod(subline);
+        std::getline(iss, subline, ' ');
+        tmp.second = std::stoi(subline);
+
+        res.push_back(tmp);
+
+    }
+
+    return res;
+
 }

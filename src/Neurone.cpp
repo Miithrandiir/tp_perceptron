@@ -8,7 +8,7 @@ int Neurone::calc_sortie(std::pair<std::pair<double, double>, int>& exemple) {
 
     double sigma = (exemple.first.first*poids[0]+exemple.first.second*poids[1]) - biais;
 
-    return (sigma > 0) ? 1 : -1;
+    return (sigma >= 0) ? 1 : -1;
 }
 
 void Neurone::mise_a_jour(std::pair<std::pair<double, double>, int> & exemple) {
@@ -35,8 +35,11 @@ std::vector<int> Neurone::train(std::vector<std::pair<std::pair<double, double>,
                 nb_error_cpt++;
             }
         }
-
+        if(nb_error_cpt == 0)
+            break;
         nb_error.push_back(nb_error_cpt);
+
+
 
     }
     return nb_error;
