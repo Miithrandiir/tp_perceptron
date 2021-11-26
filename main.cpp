@@ -22,9 +22,9 @@ int main(int argc, char *argv[]) {
      * Affichage des erreurs selon le nombre d'itérations
      */
 
-    Stats::getPlotErrorByItr(data_train);
+    //Stats::getPlotErrorByItr(data_train);
     Stats::getPlotErrorByExemple(6);
-    Stats::getPlorErrorByLearningStep(6);
+//    Stats::getPlorErrorByLearningStep(6);
 
 
     return 0;
